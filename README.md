@@ -7,7 +7,13 @@ The execution role (also known as the IAM role) on a Lambda function defines the
 
 **2. Purpose of the Resource-Based Policy on the Lambda Function**
 
-A resource-based policy on the Lambda function specifies who (which AWS accounts, IAM users, or roles) is allowed to invoke the Lambda function. This policy ensures that only authorized entities can trigger and execute the Lambda function. It is particularly useful for cross-account access, where entities outside the Lambda function's AWS account need to be granted permission to invoke the function.
+A resource-based policy on the AWS Lambda function specifies which AWS accounts, IAM users, or roles are allowed to invoke the Lambda function. This policy helps ensure that only authorized entities can trigger and execute the Lambda function, adding an additional layer of security.
+
+For example, if your Lambda function is designed to be triggered by S3 bucket events (such as the creation of new files), you can add a resource-based policy to allow the specific S3 bucket to invoke the function. This setup is particularly useful for:
+
+- Cross-account access: Allowing Lambda invocations from entities outside the Lambda function's own AWS account.
+
+- Service-specific access: Granting permissions to AWS services (e.g., S3, SNS) to invoke the Lambda function as part of their events.
 
 **3. Updates Needed for the Lambda Function to Upload a File into an S3 Bucket**
 
